@@ -6,9 +6,9 @@ def handle_navigation(page: ft.Page, event: ft.ControlEvent):
     
     if selected_index is not None:
         if selected_index == 0:
-            page.go("/account")
-        elif selected_index == 1:
             page.go("/")
+        elif selected_index == 1:
+            page.go("/account")
         elif selected_index == 2:
             page.go("/search")
     
