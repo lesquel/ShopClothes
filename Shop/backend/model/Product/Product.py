@@ -1,4 +1,7 @@
 from .category import Category
+from .size import Size
+from .brand import Brand
+from .color import Color
 class Product:
     def __init__(self, id : int, category: Category, size: Size, brand: Brand, color: Color, price: int, discount: float, img: str):
         self.__id = id
