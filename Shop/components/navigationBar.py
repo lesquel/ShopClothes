@@ -4,7 +4,7 @@ def navigationBar(page: ft.Page):
     page.navigation_bar = ft.NavigationBar(
         destinations=[
             ft.NavigationBarDestination(icon=ft.icons.HOME, label="Home"),
-            ft.NavigationBarDestination(icon=ft.icons.PERSON, label="Cuenta"),
+            ft.NavigationBarDestination(icon=ft.icons.PERSON, label="Account"),
             ft.NavigationBarDestination(icon=ft.icons.SEARCH, label="Search"),
         ],
         border=ft.Border(

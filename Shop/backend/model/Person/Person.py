@@ -1,3 +1,4 @@
+
 class Person:
     def __init__(self, id: int, username: str, password: str):
         self.__id = id
