@@ -1,7 +1,7 @@
 import flet as ft
-from pages.home import HomePage
-from pages.account import AccountPage
-from pages.search import SearchPage
+from Shop.pages.home import HomePage
+from Shop.pages.account import AccountPage
+from Shop.pages.search import SearchPage
 def update_view(page: ft.Page):
     # Limpiar las vistas existentes
     page.controls.clear()

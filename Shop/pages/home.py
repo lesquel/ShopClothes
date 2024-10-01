@@ -1,26 +1,29 @@
 import flet as ft
-from components.Card import Card
+from Shop.components.Card import Card
 def HomePage(page: ft.Page):
     page.add(
-            ft.SafeArea(
-                ft.Column(
-                    [
-                        ft.Text("Home", size=30),
-                        
-                        ft.Row(
-                            [
-                                Card("Product 1"),
-                                Card("Product 2"),
-                                Card("Product 3"),
-                                Card("Product 4"),
-                                Card("Product 5"),
-                            ],
-                            
-                            alignment=ft.MainAxisAlignment.SPACE_EVENLY,
-                            wrap=True,
-                            #spacing=5,
-                        ),
-                    ]
-                )
-            ),
-        )
+        ft.SafeArea(
+            ft.Column(
+                [
+                    ft.Text("Home", size=30),
+                    
+                    # Crear ResponsiveRow para ajustar las columnas de manera dinámica
+                    ft.ResponsiveRow(
+                        controls=[
+                            Card(title="Product 1", description="Description 1"),
+                            Card(title="Product 2", description="Description 2"),
+                            Card(title="Product 3", description="Description 3"),
+                            Card(title="Product 4", description="Description 4"),
+                            Card(title="Product 5", description="Description 5"),
+                        ],
+                        adaptive=True,
+                        col=2,  # Ajustar el número de columnas según el tamaño de la pantalla
+                        alignment=ft.MainAxisAlignment.CENTER,  # Centrar horizontalmente
+                        spacing=10,  # Espacio entre las tarjetas
+                        run_spacing=10,  # Espacio entre filas
+                    ),
+                ]
+            )
+        ),
+    )
+
