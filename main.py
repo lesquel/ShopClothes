@@ -14,4 +14,4 @@ def main(page: ft.Page):
 
 # Ejecutar la aplicación
 if __name__ == "__main__":
-    ft.app(target=main, view=ft.AppView.WEB_BROWSER)
+    ft.app(target=main)

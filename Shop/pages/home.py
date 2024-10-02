@@ -1,12 +1,12 @@
 import flet as ft
 from Shop.components.Card import Card
+from backend.controler.products import PRODUCTS
 
 def HomePage(page: ft.Page):
     def create_product_row(start, end):
         return ft.ResponsiveRow(
             controls=[
-                Card(title=f"Product {i}", description=f"Description {i}")
-                for i in range(start, end + 1)
+                Card(title=product.name, description=product.description) for product in PRODUCTS[start:end]
             ],
             alignment=ft.MainAxisAlignment.CENTER,
             spacing=10,
