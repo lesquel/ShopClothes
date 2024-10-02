@@ -1,11 +1,12 @@
 import flet as ft
-def Card(title: str, description: str):
+
+def Card(title: str, description: str, img: str, on_click):
     return ft.Card(
         content=ft.Container(
             content=ft.Column(
                 [
                     ft.Image(
-                        src="https://i.blogs.es/0ca9a6/aa/1366_2000.jpeg", 
+                        src=img, 
                         width=300, 
                         height=300
                     ),
@@ -20,6 +21,11 @@ def Card(title: str, description: str):
                         size=16,
                         text_align=ft.TextAlign.CENTER,  # Centrar el texto
                     ),
+                    ft.TextButton(
+                        "Ver detalle",
+                        icon=ft.icons.INFO,
+                        on_click=on_click,
+                    ),
                 ],
                 spacing=10,
                 alignment=ft.MainAxisAlignment.CENTER,
@@ -30,5 +36,7 @@ def Card(title: str, description: str):
             alignment=ft.alignment.center,
         ),
         elevation=5,
-        width=300  # Ancho fijo, ajustable si se desea
+        width=300,  # Ancho fijo, ajustable si se desea
     )
+
+
