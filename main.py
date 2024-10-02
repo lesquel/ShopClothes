@@ -1,6 +1,6 @@
 import flet as ft
-from components.navigationBar import navigationBar
-from views import update_view
+from Shop.components.navigationBar import navigationBar
+from Shop.views import update_view
 def main(page: ft.Page):
     page.adaptive = True
     # page.window.full_screen = True
