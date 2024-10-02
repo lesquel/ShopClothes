@@ -1,5 +1,5 @@
 import flet as ft
-from views import update_view
+from Shop.views import update_view
 def handle_navigation(page: ft.Page, event: ft.ControlEvent):
     # Determinar el índice seleccionado desde el evento
     selected_index = event.control.selected_index if hasattr(event.control, 'selected_index') else None

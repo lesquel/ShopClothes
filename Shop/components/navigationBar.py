@@ -1,5 +1,5 @@
 import flet as ft
-from urls import handle_navigation
+from Shop.urls import handle_navigation
 def navigationBar(page: ft.Page):
     page.navigation_bar = ft.NavigationBar(
         destinations=[
