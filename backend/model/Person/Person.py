@@ -1,16 +1,9 @@
-
 class Person:
-    def __init__(self, id: int, username: str, password: str):
-        self.__id = id
+    def __init__(self, username: str, password: str):
         self.__username = username
         self.__password = password
 
-    @property
-    def id(self):
-        return self.__id        
-    @id.setter
-    def id(self, value):
-        self.__id = value
+
     @property
     def username(self):
         return self.__username

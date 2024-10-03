@@ -12,6 +12,8 @@ def HomePage(page: ft.Page):
                     margin=ft.margin.only(bottom=20),
                 ),
                 ft.Container(
+                    padding=ft.padding.only(bottom=100),
+                    expand=True,
                     content=ft.Column(
                         controls=[
                             ft.Row(
@@ -34,8 +36,6 @@ def HomePage(page: ft.Page):
                         spacing=20,
                         scroll=ft.ScrollMode.AUTO,
                     ),
-                    padding=ft.padding.only(bottom=100),
-                    expand=True,
                 )
             ],
             alignment=ft.MainAxisAlignment.START,
@@ -58,4 +58,4 @@ def HomePage(page: ft.Page):
         content.height = page.height
         page.update()
 
-    page.on_resize = update_layout
+    page.on_resized = update_layout

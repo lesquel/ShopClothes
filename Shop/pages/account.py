@@ -5,7 +5,7 @@ from Shop.components.account.EditPersonDialog import EditPersonDialog
 
 def AccountPage(page: ft.Page):
     # Ejemplo de persona
-    person = Person(1, "usuario_ejemplo", "contraseña123")
+    person = Person("usuario_ejemplo", "contraseña123")
 
     def edit_person(p):
         def save_changes(new_username, new_password):
