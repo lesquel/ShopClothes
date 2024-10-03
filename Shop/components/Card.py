@@ -1,6 +1,9 @@
 import flet as ft
 
-def Card(title: str, description: str, img: str, on_click):
+def add_to_cart(e):
+    print("Agregar al carrito")
+
+def Card(title: str, description: str, stock: int, img: str, on_click):
     return ft.Card(
         content=ft.Container(
             content=ft.Column(
@@ -23,8 +26,14 @@ def Card(title: str, description: str, img: str, on_click):
                     ),
                     ft.TextButton(
                         "Ver detalle",
-                        icon=ft.icons.INFO,
+                        icon=ft.icons.PRODUCTION_QUANTITY_LIMITS,
                         on_click=on_click,
+                    ),
+                    ft.TextButton(
+                        "Agregar al carrito",
+                        disabled=True if stock == 0 else False,
+                        icon=ft.icons.ADD_SHOPPING_CART,
+                        on_click=add_to_cart,
                     ),
                 ],
                 spacing=10,

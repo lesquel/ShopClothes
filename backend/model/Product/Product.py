@@ -3,10 +3,11 @@ from .Size import Size
 from .Brand import Brand
 from .Color import Color
 class Product:
-    def __init__(self, id : int, name: str, description: str, category: Category, size: Size, brand: Brand, color: Color, price: int, discount: float, img: str):
+    def __init__(self, id : int, name: str, description: str, stock: int, category: Category, size: Size, brand: Brand, color: Color, price: float, discount: float, img: str):
         self.__id = id
         self.__name = name
         self.__description = description
+        self.__stock = stock
         self.__category = category
         self.__size = size
         self.__brand = brand
@@ -32,6 +33,12 @@ class Product:
     @description.setter
     def description(self, value):
         self.__description = value
+    @property
+    def stock(self):
+        return self.__stock
+    @stock.setter
+    def stock(self, value):
+        self.__stock = value
     @property
     def category(self):
         return self.__category

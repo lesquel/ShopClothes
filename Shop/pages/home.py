@@ -4,36 +4,47 @@ from backend.controler.products import PRODUCTS
 from Shop.components.home.show_product_detail import show_product_detail
 
 def HomePage(page: ft.Page):
-
-    content = ft.Column(
-        [
-            ft.Container(
-                content=ft.Text("Home", size=30, weight=ft.FontWeight.BOLD),
-                margin=ft.margin.only(bottom=20),
-            ),
-            ft.Column(  # Contenedor para las filas de tarjetas
-                controls=[
-                    ft.Row(
+    content = ft.Container(
+        content=ft.Column(
+            [
+                ft.Container(
+                    content=ft.Text("Home", size=30, weight=ft.FontWeight.BOLD),
+                    margin=ft.margin.only(bottom=20),
+                ),
+                ft.Container(
+                    content=ft.Column(
                         controls=[
-                            Card(
-                                title=product.name, 
-                                description=product.description,
-                                img=product.img,
-                                on_click=lambda e, p=product: show_product_detail(page, p)  # Pasar el producto a la vista de detalle
-                            ) for product in PRODUCTS
+                            ft.Row(
+                                controls=[
+                                    Card(
+                                        title=product.name, 
+                                        description=product.description,
+                                        img=product.img,
+                                        stock=product.stock,
+                                        on_click=lambda e, p=product: show_product_detail(page, p)
+                                    ) for product in PRODUCTS
+                                ],
+                                width=page.width,
+                                alignment=ft.MainAxisAlignment.SPACE_AROUND,
+                                spacing=10,
+                                wrap=True,
+                            )
                         ],
-                        width=page.width,  # Ancho del Row
-                        alignment=ft.MainAxisAlignment.SPACE_AROUND,
-                        spacing=10,
-                        wrap=True,  # Ajustar automáticamente a nuevas filas
-                    )
-                ],
-                alignment=ft.MainAxisAlignment.CENTER,
-                scroll=ft.ScrollMode.ALWAYS,  # Hacer el contenedor scrollable verticalmente
-                expand=True,  # Expandir para usar todo el espacio disponible
-            )
-        ], 
-        alignment=ft.MainAxisAlignment.CENTER,
+                        alignment=ft.MainAxisAlignment.START,
+                        spacing=20,
+                        scroll=ft.ScrollMode.AUTO,
+                    ),
+                    padding=ft.padding.only(bottom=100),
+                    expand=True,
+                )
+            ],
+            alignment=ft.MainAxisAlignment.START,
+            spacing=0,
+            expand=True,
+        ),
+        width=page.width,
+        height=page.height,
+        padding=ft.padding.all(20),
     )
 
     page.add(
@@ -41,3 +52,10 @@ def HomePage(page: ft.Page):
             content=content
         )
     )
+
+    def update_layout(e):
+        content.width = page.width
+        content.height = page.height
+        page.update()
+
+    page.on_resize = update_layout
