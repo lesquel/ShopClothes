@@ -5,7 +5,7 @@ from backend.model.Product.Cloth import Cloth
 product1 = Cloth(
     name="Pantalon",
     description="Este pantalón es el mejor",
-    stock=2,
+    # stock=2,
     category=CATEGORIES.Pantalones,
     size=Size.M,
     brand=BRANDS.Nike,
@@ -17,7 +17,7 @@ product1 = Cloth(
 product2 = Cloth(
     name="Camiseta",
     description="Esta camiseta es la mejor",
-    stock=3,
+    # stock=3,
     category=CATEGORIES.Camisetas,
     size=Size.M,
     brand=BRANDS.Puma,
@@ -27,9 +27,9 @@ product2 = Cloth(
     img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
 )
 product3 = Cloth(
-    name="Pantalones",
+    name="Pantaleta",
     description="Esta pantalon es la mejor",
-    stock=10,
+    # stock=10,
     category=CATEGORIES.Camisetas,
     size=Size.M,
     brand=BRANDS.Puma,
@@ -39,9 +39,9 @@ product3 = Cloth(
     img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
 )
 product4 = Cloth(
-    name="Pantalones",
+    name="Otro pantalon",
     description="Esta pantalon es la mejor",
-    stock=10,
+    # stock=10,
     category=CATEGORIES.Zapatos,
     size=Size.M,
     brand=BRANDS.Puma,

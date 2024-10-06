@@ -4,31 +4,33 @@ from .Size import Size
 from .Brand import Brand
 from .Color import Color
 class Cloth:
-    allClothes = []
+    _allClothes = []
 
     @classmethod
     def __add_new_cloth(cls, cloth):
-        if not any(c.__name == cloth.__name for c in cls.allClothes):
-            cls.allClothes.append(cloth)
+        if not any(c.__name == cloth.__name for c in cls._allClothes):
+            cls._allClothes.append(cloth)
         else:
             raise ValueError("Esta ropa ya se ha agregado")
 
     @classmethod
     def get_all_clothes(cls):
-        return [cloth.__name for cloth in cls.allClothes]
+        return [cloth.__name for cloth in cls._allClothes]
     
-    def __init__(self,name: str, description: str, stock: int, category: Category, size: Size, brand: Brand, color: Color, price: float, discount: float, img: str):
+    def __init__(self,name: str, description: str, category: Category, size: Size, brand: Brand, color: Color, price: float, discount: float, img: str):
         
-        self.__name = Validator.validate_type(name,str,"Nombre invalido")
-        self.__description = Validator.validate_type(description,str,"Descripcion invalido")
-        self.__stock = stock
-        self.__category = category
-        self.__size = size
+        self.__name = name
+        self.__description = description
+        # self.__stock = stock
+        self.__category = Validator.validate_type(category, Category, "La categoria ingresada no es valida")
+        self.__size = Validator.validate_type(size, Size, "El tamaño ingresado no es valido")
         self.__brand = Validator.validate_type(brand, Brand, "La marca ingresada no es valida")
-        self.__color = color
+        self.__color = Validator.validate_type(color, Color, "El color ingresado no es valido")
         self.__price = price
         self.__discount = discount
         self.__img = img
+        
+        Cloth.__add_new_cloth(self)
         
 
     @property
@@ -54,25 +56,25 @@ class Cloth:
         return self.__category
     @category.setter
     def category(self, value):
-        self.__category = value
+        self.__category = Validator.validate_type(value, Category, "La categoria ingresada no es valida")
     @property
     def size(self):
         return self.__size
     @size.setter
     def size(self, value):
-        self.__size = value
+        self.__size = Validator.validate_type(value, Size, "El tamaño ingresado no es valido")
     @property
     def brand(self):
         return self.__brand
     @brand.setter
     def brand(self, value):
-        self.__brand = value
+        self.__brand = Validator.validate_type(value, Brand, "La marca ingresada no es valida")
     @property
     def color(self):
         return self.__color
     @color.setter
     def color(self, value):
-        self.__color = value
+        self.__color = Validator.validate_type(value, Color, "El color ingresado no es valido")
     @property
     def price(self):
         return self.__price

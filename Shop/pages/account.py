@@ -1,11 +1,11 @@
 import flet as ft
-from backend.model.Person.Person import Person  
+from backend import Person as PS 
 from Shop.components.account.perfil import PersonView
 from Shop.components.account.EditPersonDialog import EditPersonDialog 
 
 def AccountPage(page: ft.Page):
     # Ejemplo de persona
-    person = Person("usuario_ejemplo", "contraseña123")
+    person = PS.Costumer("usuario_ejemplo", "contraseña123")
 
     def edit_person(p):
         def save_changes(new_username, new_password):

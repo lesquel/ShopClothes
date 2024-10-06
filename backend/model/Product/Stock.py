@@ -1,5 +1,5 @@
 from .Cloth import Cloth
-
+from backend.validator import Validator
 
 class Stock:
     allStocks = []
@@ -15,9 +15,8 @@ class Stock:
     def get_all_brands(cls):
         return [stock.__name for stock in cls.allStocks]
 
-    def __init__(self, cloth: str, amount: float):
-        if not isinstance(Cloth, cloth):
-            raise ValueError("La ropa ingresada es invalida")
-        self.__cloth = cloth
+    def __init__(self, cloth: Cloth, amount: float):
+        
+        self.__cloth = Validator.validate_type(cloth, Cloth, "La prenda ingresada no es valida")
         self.__amount = amount
         Stock.__add_new_stock(self)

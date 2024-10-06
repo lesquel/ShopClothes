@@ -1,19 +1,17 @@
 class Brand:
-    allBrands = []
+    __allBrands = []
     
     @classmethod
     def __add_new_brand(cls, brand):
-        if not any(b.__name ==brand.__name for b in cls.allBrands):
-            cls.allBrands.append(brand)
+        if not any(b.__name ==brand.__name for b in cls.__allBrands):
+            cls.__allBrands.append(brand)
         else: raise ValueError("Esta marca ya se ha agregado")
         
     @classmethod
     def get_all_brands(cls):
-        return [brand.__name for brand in cls.allBrands]
+        return [brand.__name for brand in cls.__allBrands]
     
     def __init__(self, name: str):
-        if not isinstance(name,str):
-            raise TypeError("El nombre de la marca es invalida")
         self.__name = name
         Brand.__add_new_brand(self)
         
