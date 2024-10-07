@@ -27,7 +27,7 @@ class Person(ABC):
         return False
 
     def __eq__(self, other):
-        return self.__username == other.__username
+        return self.__username == other.__username 
 
     @abstractmethod
     def __str__(self):

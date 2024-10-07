@@ -1,5 +1,5 @@
 import flet as ft
-from backend import Person as PS 
+from backend.model import person as PS 
 from Shop.components.account.perfil import PersonView
 from Shop.components.account.EditPersonDialog import EditPersonDialog 
 

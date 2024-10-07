@@ -1,11 +1,10 @@
 from backend.controler.instancias import COLORS, BRANDS, CATEGORIES
-from backend.model.Product.Size import Size
-from backend.model.Product.Cloth import Cloth
+from backend.model.product import Size, Cloth
 
 product1 = Cloth(
     name="Pantalon",
     description="Este pantalón es el mejor",
-    # stock=2,
+    stock=10,
     category=CATEGORIES.Pantalones,
     size=Size.M,
     brand=BRANDS.Nike,
@@ -17,7 +16,7 @@ product1 = Cloth(
 product2 = Cloth(
     name="Camiseta",
     description="Esta camiseta es la mejor",
-    # stock=3,
+    stock=3,
     category=CATEGORIES.Camisetas,
     size=Size.M,
     brand=BRANDS.Puma,
@@ -29,7 +28,7 @@ product2 = Cloth(
 product3 = Cloth(
     name="Pantaleta",
     description="Esta pantalon es la mejor",
-    # stock=10,
+    stock=10,
     category=CATEGORIES.Camisetas,
     size=Size.M,
     brand=BRANDS.Puma,
@@ -41,7 +40,7 @@ product3 = Cloth(
 product4 = Cloth(
     name="Otro pantalon",
     description="Esta pantalon es la mejor",
-    # stock=10,
+    stock=10,
     category=CATEGORIES.Zapatos,
     size=Size.M,
     brand=BRANDS.Puma,

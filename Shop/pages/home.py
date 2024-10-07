@@ -19,12 +19,9 @@ def HomePage(page: ft.Page):
                             ft.Row(
                                 controls=[
                                     Card(
-                                        title=product.name, 
-                                        description=product.description,
-                                        img=product.img,
-                                        stock=product.stock,
-                                        on_click=lambda e, p=product: show_product_detail(page, p)
-                                    ) for product in PRODUCTS
+                                        product=p,
+                                        on_click=lambda e, p=p: show_product_detail(page, p)
+                                    ) for p in PRODUCTS
                                 ],
                                 width=page.width,
                                 alignment=ft.MainAxisAlignment.SPACE_AROUND,

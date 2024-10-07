@@ -1,6 +1,6 @@
-from backend.model.Person.Person import Person
+from backend.model import person as PS
 import flet as ft   
-def PersonView(person: Person, on_edit):
+def PersonView(person: PS.Costumer, on_edit):
     return ft.Container(
         content=ft.Column([
             ft.Row([

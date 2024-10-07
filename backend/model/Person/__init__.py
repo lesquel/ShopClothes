@@ -1,3 +1,2 @@
-from .Costumer import Costumer
-from .Staff import Staff
-
+from .costumer import Costumer
+from .staff import Staff

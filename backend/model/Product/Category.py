@@ -1,5 +1,6 @@
 from backend.validator import Validator
 from .category_type import CategoryType
+
 class Category:
     __allCategories = []
     

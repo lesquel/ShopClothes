@@ -1,27 +1,18 @@
 from backend.validator import Validator
-from .Category import Category
-from .Size import Size
-from .Brand import Brand
-from .Color import Color
+from .category import Category
+from .size import Size
+from .brand import Brand
+from .color import Color
+
 class Cloth:
-    _allClothes = []
-
-    @classmethod
-    def __add_new_cloth(cls, cloth):
-        if not any(c.__name == cloth.__name for c in cls._allClothes):
-            cls._allClothes.append(cloth)
-        else:
-            raise ValueError("Esta ropa ya se ha agregado")
-
-    @classmethod
-    def get_all_clothes(cls):
-        return [cloth.__name for cloth in cls._allClothes]
     
-    def __init__(self,name: str, description: str, category: Category, size: Size, brand: Brand, color: Color, price: float, discount: float, img: str):
+    
+    def __init__(self,name: str, description: str, stock,category: Category, size: Size, brand: Brand, color: Color, price: float, discount: float, img: str):
+        from .inventory import Inventory
         
         self.__name = name
         self.__description = description
-        # self.__stock = stock
+        self.__stock = stock
         self.__category = Validator.validate_type(category, Category, "La categoria ingresada no es valida")
         self.__size = Validator.validate_type(size, Size, "El tamaño ingresado no es valido")
         self.__brand = Validator.validate_type(brand, Brand, "La marca ingresada no es valida")
@@ -30,7 +21,7 @@ class Cloth:
         self.__discount = discount
         self.__img = img
         
-        Cloth.__add_new_cloth(self)
+        Inventory.add_cloth(self)
         
 
     @property
@@ -93,3 +84,17 @@ class Cloth:
     @img.setter
     def img(self, value):
         self.__img = value
+        
+    def show_cloth(self):
+        return {
+            'name': self.__name,
+            'description': self.__description,
+            'stock': self.__stock,
+            'category': self.__category.name,
+            'size': self.__size.name,
+            'brand': self.__brand.name,
+            'color': self.__color.name,
+            'price': self.__price,
+            'discount': self.__discount,
+            'img': self.__img
+        }

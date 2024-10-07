@@ -1,6 +1,4 @@
-from backend.model.Product.Category import Category
-from backend.model.Product.Brand import Brand
-from backend.model.Product.Color import Color
+from backend.model.product import Category, Brand, Color, CategoryType
 
 class Categories:
     def __init__(self, categories_dict):
@@ -19,10 +17,10 @@ class Brands:
 
 # Instancias de las categorías
 CATEGORIES_DICT = {
-    "Pantalones": Category("Pantalones"),
-    "Camisetas": Category("Camisetas"),
-    "Zapatos": Category("Zapatos"),
-    "Ropas": Category("Ropas"),
+    "Pantalones": Category("Pantalones", CategoryType.BOTTOMS),
+    "Camisetas": Category("Camisetas",CategoryType.TOPS),
+    "Zapatos": Category("Zapatos", CategoryType.SHOES),
+    "Ropas": Category("Ropas", CategoryType.OTHER),
 }
 
 CATEGORIES = Categories(CATEGORIES_DICT)

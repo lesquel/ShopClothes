@@ -1,9 +1,8 @@
-from backend import Person as PS
-from backend import Product as PR
-from backend import Shopping as SH
+from backend.model import person as PS, shopping as SH, product as PR
 
 persona1 = PS.Costumer("juan", "1234")
-
+persona2 = PS.Costumer("juan", "1234")
+print(persona1==persona2)
 marca1 = PR.Brand("nike")
 
 categoia1 = PR.Category("Pantalon", PR.CategoryType.BOTTOMS)
@@ -12,22 +11,26 @@ color1 = PR.Color("azul")
 
 size1 = PR.Size.XXL
 
-product1 = PR.Cloth("pantalon", "pantalon azul", categoia1, size1, marca1, color1, 100, 0, "img")
-product2 = PR.Cloth("pantalon1", "pantalon rojo", categoia1, size1, marca1, color1, 100, 0, "img")
-stock1 = PR.Stock(product1, 10)
-
+product1 = PR.Cloth("pantalon", "pantalon azul", 7,categoia1, size1, marca1, color1, 100, 0, "img")
+product2 = PR.Cloth("pantalon1", "pantalon rojo", 5,categoia1, size1, marca1, color1, 100, 0, "img")
 
 shopping1 = SH.ShoppingCart(persona1)
-
 shopping1.add_product(product1)
+
 shopping1.add_product(product1)
 shopping1.add_product(product1)
 shopping1.add_product(product2)
 
-# print(shopping1.show_shopping_cart())
+shooping2 = SH.ShoppingCart(persona1)
+shooping2.add_product(product1)
+shooping2.add_product(product1)
 
-# print(shopping1.total)
 
-orden = shopping1.confirm_cart()
-shopping1 = None
-print(orden.show_order())
+
+shopping1.confirm_cart()
+shooping2.confirm_cart()
+
+print(persona1.show_pursache_history())
+
+
+print(PR.Inventory.show_inventory())
