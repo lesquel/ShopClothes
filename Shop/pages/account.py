@@ -1,7 +1,7 @@
 import flet as ft
 from backend.model import person as PS 
 from Shop.components.account.perfil import PersonView
-from Shop.components.account.editPersonDialog import EditPersonDialog 
+from Shop.components.account.edit_person_dialog import EditPersonDialog 
 
 def AccountPage(page: ft.Page):
     # Ejemplo de persona
