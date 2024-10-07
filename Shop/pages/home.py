@@ -1,5 +1,5 @@
 import flet as ft
-from Shop.components.Card import Card
+from Shop.components.card import Card
 from backend.controler.products import PRODUCTS
 from Shop.components.home.show_product_detail import show_product_detail
 
