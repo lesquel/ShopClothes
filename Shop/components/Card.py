@@ -3,24 +3,24 @@ import flet as ft
 def add_to_cart(e):
     print("Agregar al carrito")
 
-def Card(title: str, description: str, stock: int, img: str, on_click):
+def Card(product, on_click):
     return ft.Card(
         content=ft.Container(
             content=ft.Column(
                 [
                     ft.Image(
-                        src=img, 
+                        src=product.img, 
                         width=300, 
                         height=300
                     ),
                     ft.Text(
-                        title,
+                        product.name,
                         size=24,
                         weight=ft.FontWeight.BOLD,
                         text_align=ft.TextAlign.CENTER,  # Centrar el texto
                     ),
                     ft.Text(
-                        description,
+                        product.description,
                         size=16,
                         text_align=ft.TextAlign.CENTER,  # Centrar el texto
                     ),
@@ -31,7 +31,7 @@ def Card(title: str, description: str, stock: int, img: str, on_click):
                     ),
                     ft.TextButton(
                         "Agregar al carrito",
-                        disabled=True if stock == 0 else False,
+                        disabled=True if product.stock == 0 else False,
                         icon=ft.icons.ADD_SHOPPING_CART,
                         on_click=add_to_cart,
                     ),

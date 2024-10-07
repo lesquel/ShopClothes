@@ -1,12 +1,12 @@
-from backend.model.Person.Person import Person
+from backend.model import person as PS
 import flet as ft   
-def PersonView(person: Person, on_edit):
+def PersonView(person: PS.Costumer, on_edit):
     return ft.Container(
         content=ft.Column([
             ft.Row([
                 ft.Icon(ft.icons.ACCOUNT_CIRCLE, size=50, color=ft.colors.BLUE),
                 ft.Column([
-                    ft.Text(f"ID: {person.id}", size=16, color=ft.colors.GREY_700),
+                    # ft.Text(f"ID: {person.id}", size=16, color=ft.colors.GREY_700),
                     ft.Text(person.username, size=24, weight=ft.FontWeight.BOLD),
                 ]),
             ], alignment=ft.MainAxisAlignment.START),

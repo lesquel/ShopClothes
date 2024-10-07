@@ -1,4 +1,8 @@
-from .Person import Person
+from .person import Person
 class Staff(Person):
-    def __init__(self, id: int, username: str, password: str, name: str):
-        super().__init__(id, username, password)        
+    def __init__(self, username: str, password):
+        super().__init__(username, password)        
+
+    
+    def __str__(self):
+        return f"Staff: {self.username}"

@@ -1,6 +1,6 @@
-from backend.model.Person.Person import Person
+from backend.model import person as PS
 import flet as ft
-def EditPersonDialog(person: Person, on_save, page: ft.Page):
+def EditPersonDialog(person: PS.Costumer, on_save, page: ft.Page):
     def close_dlg(e, dlg):
         dlg.open = False
         page.update()

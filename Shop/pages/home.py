@@ -12,17 +12,16 @@ def HomePage(page: ft.Page):
                     margin=ft.margin.only(bottom=20),
                 ),
                 ft.Container(
+                    padding=ft.padding.only(bottom=100),
+                    expand=True,
                     content=ft.Column(
                         controls=[
                             ft.Row(
                                 controls=[
                                     Card(
-                                        title=product.name, 
-                                        description=product.description,
-                                        img=product.img,
-                                        stock=product.stock,
-                                        on_click=lambda e, p=product: show_product_detail(page, p)
-                                    ) for product in PRODUCTS
+                                        product=p,
+                                        on_click=lambda e, p=p: show_product_detail(page, p)
+                                    ) for p in PRODUCTS
                                 ],
                                 width=page.width,
                                 alignment=ft.MainAxisAlignment.SPACE_AROUND,
@@ -34,8 +33,6 @@ def HomePage(page: ft.Page):
                         spacing=20,
                         scroll=ft.ScrollMode.AUTO,
                     ),
-                    padding=ft.padding.only(bottom=100),
-                    expand=True,
                 )
             ],
             alignment=ft.MainAxisAlignment.START,
@@ -58,4 +55,4 @@ def HomePage(page: ft.Page):
         content.height = page.height
         page.update()
 
-    page.on_resize = update_layout
+    page.on_resized = update_layout

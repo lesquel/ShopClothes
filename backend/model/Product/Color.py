@@ -1,15 +1,21 @@
+
 class Color:
-    def __init__(self, id: int, name: str):
-        self.__id = id
+    __allColors = []
+    
+    @classmethod
+    def __add_new_color(cls, Color):
+        if not any(c.__name ==Color.__name for c in cls.__allColors):
+            cls.__allColors.append(Color)
+        else: raise ValueError("Este color ya se ha agregado")
+        
+    @classmethod
+    def get_all_colors(cls):
+        return [color.__name for color in cls.__allColors]
+    def __init__(self, name: str):
+    
         self.__name = name
+        Color.__add_new_color(self)
 
-    @property
-    def id(self):
-        return self.__id
-
-    @id.setter
-    def id(self, value):
-        self.__id = value
 
     @property
     def name(self):

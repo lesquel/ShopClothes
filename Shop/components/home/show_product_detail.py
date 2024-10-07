@@ -22,6 +22,7 @@ def show_product_detail(page: ft.Page, product):
                 ft.Text(f"Nombre: {product.name}", size=25, text_align=ft.TextAlign.CENTER),
                 ft.Text(f"Descripción: {product.description}", size=18, text_align=ft.TextAlign.CENTER),
                 ft.Text(f"Categoría: {product.category.name}", size=18, text_align=ft.TextAlign.CENTER),
+                ft.Text(f"Stocks: {product.stock}", size=18, text_align=ft.TextAlign.CENTER),
                 ft.Text(f"Tamaño: {product.size.name}", size=18, text_align=ft.TextAlign.CENTER),
                 ft.Text(f"Marca: {product.brand.name}", size=18, text_align=ft.TextAlign.CENTER),
                 ft.Text(f"Color: {product.color.name}", size=18, text_align=ft.TextAlign.CENTER),

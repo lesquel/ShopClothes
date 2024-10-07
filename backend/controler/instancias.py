@@ -1,6 +1,4 @@
-from backend.model.Product.Category import Category
-from backend.model.Product.Brand import Brand
-from backend.model.Product.Color import Color
+from backend.model.product import Category, Brand, Color, CategoryType
 
 class Categories:
     def __init__(self, categories_dict):
@@ -19,31 +17,31 @@ class Brands:
 
 # Instancias de las categorías
 CATEGORIES_DICT = {
-    "Pantalones": Category(1, "Pantalones"),
-    "Camisetas": Category(2, "Camisetas"),
-    "Zapatos": Category(3, "Zapatos"),
-    "Ropas": Category(4, "Ropas"),
+    "Pantalones": Category("Pantalones", CategoryType.BOTTOMS),
+    "Camisetas": Category("Camisetas",CategoryType.TOPS),
+    "Zapatos": Category("Zapatos", CategoryType.SHOES),
+    "Ropas": Category("Ropas", CategoryType.OTHER),
 }
 
 CATEGORIES = Categories(CATEGORIES_DICT)
 
 # Instancias de los colores
 COLORS_DICT = {
-    "Blanco": Color(1, "Blanco"),
-    "Negro": Color(2, "Negro"),
-    "Rojo": Color(3, "Rojo"),
-    "Amarillo": Color(4, "Amarillo"),
-    "Azul": Color(5, "Azul"),
+    "Blanco": Color("Blanco"),
+    "Negro": Color("Negro"),
+    "Rojo": Color("Rojo"),
+    "Amarillo": Color("Amarillo"),
+    "Azul": Color("Azul"),
 }
 
 COLORS = Colors(COLORS_DICT)
 
 # Instancias de los brands
 BRANDS_DICT = {
-    "Nike": Brand(1, "Nike"),
-    "Puma": Brand(2, "Puma"),
-    "Reebok": Brand(3, "Reebok"),
-    "Asics": Brand(4, "Asics"),
+    "Nike": Brand("Nike"),
+    "Puma": Brand("Puma"),
+    "Reebok": Brand("Reebok"),
+    "Asics": Brand("Asics"),
 }
 
 BRANDS = Brands(BRANDS_DICT)
