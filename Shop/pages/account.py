@@ -11,10 +11,9 @@ def AccountPage(page: ft.Page):
         def save_changes(new_username, new_password):
             # Utilizamos los setters para actualizar los datos de la persona
             person.username = new_username
-            person.password = new_password
-            
+            person.change_password(person.password, new_password)
             # Actualizamos la vista
-            person_view.content.controls[0].controls[1].controls[1].value = new_username
+            person_view.content.controls[0].controls[1].controls[0].value = person.username
             dlg.open = False
             page.update()
 

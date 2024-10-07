@@ -12,10 +12,14 @@ class Person(ABC):
     def username(self, value):
         self.__username = value
 
+    
     @property
     def password(self):
         return self.__password
 
+    # @password.setter
+    # def password(self, value):
+    #     self.__password = value
 
     def authenticate(self, password: str):
         return self.__password == password

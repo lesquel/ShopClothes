@@ -6,7 +6,7 @@ def EditPersonDialog(person: PS.Costumer, on_save, page: ft.Page):
         page.update()
 
     username_field = ft.TextField(value=person.username, label="Username")
-    password_field = ft.TextField(value=person.password, label="Password", password=True)
+    password_field = ft.TextField(value=person.password, label="Password", password=True,can_reveal_password=True)
 
     dlg = ft.AlertDialog(
         title=ft.Text("Editar Usuario"),
