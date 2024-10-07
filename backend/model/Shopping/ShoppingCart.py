@@ -16,15 +16,17 @@ class ShoppingCart:
         )
         self.__clothes = []
         self.__total_price = 0
+        self.__amount_of_products = len(self.__clothes)
         
 
     @property
-    def total(self):
+    def total_price(self):
         return self.__total_price
 
-    @total.setter
-    def total(self, value):
+    @total_price.setter
+    def total_price(self, value):
         self.__total_price = value
+        
         
     def add_product(self, cloth: Cloth):
         self.__clothes.append(Validator.validate_type(cloth, Cloth, "La prenda ingresada no es valida"))
@@ -46,11 +48,14 @@ class ShoppingCart:
         else:
             self.__total_price -= cloth.price
 
+    
     def confirm_cart(self):
         if not self.__clothes:
             raise ValueError("El carrito esta vacio")
         
         orden = Order(self.__clothes, self.__total_price)
+        for cloth in self.__clothes:
+            cloth.stock -= 1
         self.__costumer.make_purchase(orden)
         
         del self

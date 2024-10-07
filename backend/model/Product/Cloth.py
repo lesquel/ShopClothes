@@ -98,3 +98,4 @@ class Cloth:
             'discount': self.__discount,
             'img': self.__img
         }
+        

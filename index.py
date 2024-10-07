@@ -2,7 +2,6 @@ from backend.model import person as PS, shopping as SH, product as PR
 
 persona1 = PS.Costumer("juan", "1234")
 persona2 = PS.Costumer("juan", "1234")
-print(persona1==persona2)
 marca1 = PR.Brand("nike")
 
 categoia1 = PR.Category("Pantalon", PR.CategoryType.BOTTOMS)
@@ -21,14 +20,13 @@ shopping1.add_product(product1)
 shopping1.add_product(product1)
 shopping1.add_product(product2)
 
-shooping2 = SH.ShoppingCart(persona1)
-shooping2.add_product(product1)
-shooping2.add_product(product1)
+# shooping2 = SH.ShoppingCart(persona1)
+# shooping2.add_product(product1)
+# shooping2.add_product(product1)
 
 
 
 shopping1.confirm_cart()
-shooping2.confirm_cart()
 
 print(persona1.show_pursache_history())
 
