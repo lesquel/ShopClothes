@@ -1,6 +1,6 @@
 import flet as ft
 from Shop.components.Card import Card
-from backend.controler.products import PRODUCTS
+from backend.model.product import Inventory
 from Shop.components.home.show_product_detail import show_product_detail
 
 def HomePage(page: ft.Page):
@@ -21,7 +21,7 @@ def HomePage(page: ft.Page):
                                     Card(
                                         product=p,
                                         on_click=lambda e, p=p: show_product_detail(page, p)
-                                    ) for p in PRODUCTS
+                                    ) for p in Inventory.get_inventory()
                                 ],
                                 width=page.width,
                                 alignment=ft.MainAxisAlignment.SPACE_AROUND,

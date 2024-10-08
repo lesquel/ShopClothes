@@ -1,4 +1,6 @@
 import flet as ft
+from backend.controler import instancias #Agregue esta importacion para que se importen todas las instancias creadas
+
 from Shop.components.navigationBar import navigationBar
 from Shop.views import update_view
 from backend.model import person as PS

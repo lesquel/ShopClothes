@@ -15,8 +15,9 @@ class Inventory:
     @classmethod
     def show_inventory(cls):
         return [cloth.show_cloth() for cloth in cls.allClothes]
-    
-    
+    @classmethod
+    def get_inventory(self):
+        return [cloth for cloth in self.allClothes]
     
     @classmethod
     def get_cloth_by_name(cls, name):

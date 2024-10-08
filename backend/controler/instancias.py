@@ -1,47 +1,73 @@
+from backend.model.product import Size, Cloth
 from backend.model.product import Category, Brand, Color, CategoryType
 
-class Categories:
-    def __init__(self, categories_dict):
-        for key, value in categories_dict.items():
-            setattr(self, key, value)
-
-class Colors:
-    def __init__(self, colors_dict):
-        for key, value in colors_dict.items():
-            setattr(self, key, value)
-
-class Brands:
-    def __init__(self, brands_dict):
-        for key, value in brands_dict.items():
-            setattr(self, key, value)
 
 # Instancias de las categorías
-CATEGORIES_DICT = {
-    "Pantalones": Category("Pantalones", CategoryType.BOTTOMS),
-    "Camisetas": Category("Camisetas",CategoryType.TOPS),
-    "Zapatos": Category("Zapatos", CategoryType.SHOES),
-    "Ropas": Category("Ropas", CategoryType.OTHER),
-}
-
-CATEGORIES = Categories(CATEGORIES_DICT)
+pantalones = Category("Pantalones", CategoryType.BOTTOMS)
+camisetas = Category("Camisetas", CategoryType.TOPS)
+zapatos = Category("Zapatos", CategoryType.SHOES)
+ropas = Category("Ropas", CategoryType.OTHER)
 
 # Instancias de los colores
-COLORS_DICT = {
-    "Blanco": Color("Blanco"),
-    "Negro": Color("Negro"),
-    "Rojo": Color("Rojo"),
-    "Amarillo": Color("Amarillo"),
-    "Azul": Color("Azul"),
-}
-
-COLORS = Colors(COLORS_DICT)
+blanco = Color("Blanco")
+negro = Color("Negro")
+rojo = Color("Rojo")
+amarillo = Color("Amarillo")
+azul = Color("Azul")
 
 # Instancias de los brands
-BRANDS_DICT = {
-    "Nike": Brand("Nike"),
-    "Puma": Brand("Puma"),
-    "Reebok": Brand("Reebok"),
-    "Asics": Brand("Asics"),
-}
+nike = Brand("Nike")
+puma = Brand("Puma")
+reebok = Brand("Reebok")
+asics = Brand("Asics")
 
-BRANDS = Brands(BRANDS_DICT)
+
+
+product1 = Cloth(
+    name="Pantalon",
+    description="Este pantalón es el mejor",
+    stock=10,
+    category=pantalones,
+    size=Size.M,
+    brand=nike,
+    color=blanco,
+    price=100,
+    discount=0.2,
+    img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+)
+product2 = Cloth(
+    name="Camiseta",
+    description="Esta camiseta es la mejor",
+    stock=3,
+    category=camisetas,
+    size=Size.M,
+    brand=puma,
+    color=blanco,
+    price=100,
+    discount=0.2,
+    img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+)
+product3 = Cloth(
+    name="Pantaleta",
+    description="Esta pantalon es la mejor",
+    stock=10,
+    category=camisetas,
+    size=Size.M,
+    brand=puma,
+    color=azul,
+    price=100,
+    discount=0.2,
+    img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+)
+product4 = Cloth(
+    name="Otro pantalon",
+    description="Esta pantalon es la mejor",
+    stock=10,
+    category=zapatos,
+    size=Size.M,
+    brand=reebok,
+    color=negro,
+    price=100,
+    discount=0.2,
+    img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+)

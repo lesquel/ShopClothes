@@ -4,6 +4,7 @@ class Validator(ABC):
     @staticmethod
     def validate_type(obj:any,type:any, message:str):
         if not isinstance(obj,type):
+            print(type(obj))
             raise ValueError(message)
         return obj
     @staticmethod
