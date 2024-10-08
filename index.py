@@ -1,4 +1,4 @@
-from backend.model import person as PS, shopping as SH, product as PR
+from backend.model import person as PS, product as PR
 
 persona1 = PS.Costumer("juan", "1234")
 persona2 = PS.Costumer("juan", "1234")
@@ -13,7 +13,7 @@ size1 = PR.Size.XXL
 product1 = PR.Cloth("pantalon", "pantalon azul", 7,categoia1, size1, marca1, color1, 100, 0, "img")
 product2 = PR.Cloth("pantalon1", "pantalon rojo", 5,categoia1, size1, marca1, color1, 100, 0, "img")
 
-shopping1 = SH.ShoppingCart(persona1)
+shopping1 = persona1.get_shopping_cart() 
 shopping1.add_product(product1)
 
 shopping1.add_product(product1)

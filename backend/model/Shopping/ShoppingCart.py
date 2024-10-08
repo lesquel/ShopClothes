@@ -16,7 +16,6 @@ class ShoppingCart:
         )
         self.__clothes = []
         self.__total_price = 0
-        self.__amount_of_products = len(self.__clothes)
         
 
     @property

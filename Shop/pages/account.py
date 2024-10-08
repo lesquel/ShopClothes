@@ -5,24 +5,24 @@ from Shop.components.account.edit_person_dialog import EditPersonDialog
 
 def AccountPage(page: ft.Page):
     # Ejemplo de persona
-    person = PS.Costumer("usuario_ejemplo", "contraseña123")
+    
 
     def edit_person(p):
         def save_changes(new_username, new_password):
             # Utilizamos los setters para actualizar los datos de la persona
-            person.username = new_username
-            person.change_password(person.password, new_password)
+            page.current_user.username = new_username
+            page.current_user.change_password(page.current_user.password, new_password)
             # Actualizamos la vista
-            person_view.content.controls[0].controls[1].controls[0].value = person.username
+            person_view.content.controls[0].controls[1].controls[0].value = page.current_user.username
             dlg.open = False
             page.update()
 
         dlg = EditPersonDialog(p, save_changes, page)
-        page.dialog = dlg
         dlg.open = True
+        page.overlay.append(dlg)
         page.update()
 
-    person_view = PersonView(person, edit_person)
+    person_view = PersonView(page.current_user, edit_person)
 
     page.add(
         ft.SafeArea(

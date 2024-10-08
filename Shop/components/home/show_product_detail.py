@@ -1,8 +1,7 @@
 import flet as ft
-from backend.model.shopping.shoppingCart import ShoppingCart
-from backend.controler.products import PRODUCTS
-def add_to_cart(e):
-    ShoppingCart.add_product(PRODUCTS[e.control.selected_index])
+def add_to_cart(e, current_user,product):
+    current_user.get_shopping_cart().add_product(product)
+    print(current_user.get_shopping_cart().show_shopping_cart())
 
 def Description(text):
     return ft.Container(
@@ -77,7 +76,7 @@ def show_product_detail(page: ft.Page, product):
                         ft.ElevatedButton(
                             "Agregar al carrito",
                             icon=ft.icons.ADD_SHOPPING_CART,
-                            on_click=add_to_cart,
+                            on_click=lambda e: add_to_cart(e,page.current_user,product),
                             
                         ),
                     ],
