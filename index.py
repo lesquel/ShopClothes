@@ -32,3 +32,5 @@ print(persona1.show_pursache_history())
 
 
 print(PR.Inventory.show_inventory())
+print()
+print(PR.Brand.get_all_brands())

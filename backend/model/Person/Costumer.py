@@ -1,6 +1,7 @@
 from backend.model.shopping import PursacheHistory
 from backend.validator import Validator
 from .person import Person
+from backend.model.shopping import Order
 
 class Costumer(Person):
     def __init__(self, username: str, password: str):
@@ -8,7 +9,6 @@ class Costumer(Person):
         self.__pursache_history = PursacheHistory()
         
     def make_purchase(self, order):
-        from backend.model.shopping import Order
         self.__pursache_history.add_product(Validator.validate_type(order, Order, "La orden ingresada no es valida"))
 
     def show_pursache_history(self):

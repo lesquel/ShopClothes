@@ -1,5 +1,5 @@
-from .cloth import Cloth
 from backend.validator import Validator
+from .cloth import Cloth
 
 class Inventory:
     allClothes = []
