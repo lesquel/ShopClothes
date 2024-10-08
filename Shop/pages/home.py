@@ -1,5 +1,5 @@
 import flet as ft
-from Shop.components.card import Card
+from Shop.components.Card import Card
 from backend.controler.products import PRODUCTS
 from Shop.components.home.show_product_detail import show_product_detail
 
@@ -31,8 +31,10 @@ def HomePage(page: ft.Page):
                         ],
                         alignment=ft.MainAxisAlignment.START,
                         spacing=20,
+                        expand=True,
                         scroll=ft.ScrollMode.AUTO,
                     ),
+                    
                 )
             ],
             alignment=ft.MainAxisAlignment.START,
