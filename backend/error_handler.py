@@ -1,4 +1,3 @@
-import traceback
 
 class ErrorHandler:
     def __init__(self, message=None, code=None):
